@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>UTS Cek Tidur</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="container">
+      <header class="page-header">
+        <p class="kicker">UTS Kecerdasan Buatan</p>
+        <h1>Cek Pola Tidur</h1>
+        <p class="subtitle">
+          Jawab 12 pertanyaan singkat untuk skrining awal pola gangguan tidur.
+        </p>
+      </header>
+
+      <div class="progress-bar-wrap" id="progressWrap" style="display: none">
+        <span class="progress-label" id="progressLabel">Pertanyaan 1 / 12</span>
+        <div class="progress-track">
+          <div class="progress-fill" id="progressFill"></div>
+        </div>
+        <span class="progress-pct" id="progressPct">0%</span>
+      </div>
+
+      <section class="screen active" id="screen-intro">
+        <div class="card card-intro">
+          <h2>Mulai Pemeriksaan</h2>
+          <p class="intro-desc">
+            Hasil hanya untuk edukasi awal, bukan diagnosis medis.
+          </p>
+          <button class="btn btn-primary btn-large" onclick="startQuiz()">
+            Mulai
+          </button>
+        </div>
+      </section>
+
+      <section class="screen" id="screen-questions">
+        <div class="card" id="questionCard">
+          <div class="q-counter" id="qCounter">Pertanyaan 1 dari 12</div>
+          <div class="q-category" id="qCategory">Kategori</div>
+          <div class="q-text" id="qText">Pertanyaan muncul di sini</div>
+          <div class="q-hint" id="qHint"></div>
+          <div class="options-grid" id="optionsGrid"></div>
+        </div>
+        <div class="nav-row">
+          <button
+            class="btn btn-secondary"
+            onclick="prevQuestion()"
+            id="btnPrev"
+          >
+            Kembali
+          </button>
+          <button
+            class="btn btn-primary"
+            onclick="nextQuestion()"
+            id="btnNext"
+            disabled
+          >
+            Lanjut
+          </button>
+        </div>
+      </section>
+
+      <section class="screen" id="screen-result">
+        <div class="card" id="resultCard"></div>
+        <div class="card" id="reasoningCard"></div>
+        <div class="card" id="recCard"></div>
+        <div class="result-actions">
+          <button class="btn btn-secondary" onclick="resetApp()">Ulangi</button>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>Dibuat oleh Latip (20240040036)</p>
+    </footer>
+
+    <script src="app.js"></script>
+  </body>
+</html>

@@ -1,0 +1,15 @@
+FUNCTION runInference(answers):
+  // Fase 1: Kumpulkan Fakta
+  activeFacts = new Set()
+  FOR EACH question → activeFacts.ADD(selectedOption.fact)
+
+  // Fase 2: Pattern Matching
+  scores = {}
+  FOR EACH rule:
+    matched = rule.conditions FILTER (c IN activeFacts)
+    IF matched.length > 0:
+      confidence = matched / total conditions
+      scores[rule.conclusion] += confidence × rule.weight
+
+  // Fase 3: Kesimpulan
+  RETURN hypothesis WITH MAX(scores)
